@@ -1,0 +1,22 @@
+1)
+nano .my.cnf
+  [mysql]
+  user=root
+  password="my_password"
+2)
+mysql
+create database example;
+use example
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL,
+  name VARCHAR(100) NOT NULL UNIQUE
+);
+exit
+3)
+mysqldump -u root -p example > example.dump.sql
+mysql
+create database samle;
+exit
+mysql sample < example.dump.sql
+4)
+mysqldump -u root -p mysql help_keyword --where='TRUE LIMIT 100' > help_keyword_report.dump.sql 
